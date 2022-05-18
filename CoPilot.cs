@@ -471,7 +471,19 @@ namespace CoPilot
                                 if (SkillInfo.ManageCooldown(SkillInfo.generalCry, skill))
                                     if (GetCorpseWithin(Settings.generalCryCorpseTriggerRange) >=
                                         Settings.generalCryMinCorpse && MonsterCheck(Settings.generalCryTriggerRange, 1,0,0))
-                                        Keyboard.KeyPress(GetSkillInputKey(skill.SkillSlotIndex));
+                                    {
+                                        if (buffs.Exists(x =>
+                                        x.Name == "rage" && x.Charges < 25 &&
+                                        x.Charges >= Settings.berserkMinRage))
+                                        {
+                                            Keyboard.KeyPress(GetSkillInputKey(skill.SkillSlotIndex));
+                                        }
+                                        else if (!buffs.Exists(x => x.Name == "rage"))
+                                        {
+                                            Keyboard.KeyPress(GetSkillInputKey(skill.SkillSlotIndex));
+                                        }
+
+                                    }
                         }
                         catch (Exception e)
                         {

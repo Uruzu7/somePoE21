@@ -825,9 +825,9 @@ namespace CoPilot
                 if (ImGui.TreeNodeEx("General's Cry", collapsingHeaderFlags))
                 {
                     CoPilot.instance.Settings.generalCryEnabled.Value =
-                        ImGuiExtension.Checkbox("Enabled", CoPilot.instance.Settings.generalCryEnabled.Value);
+                        ImGuiExtension.Checkbox("Sketchenabled", CoPilot.instance.Settings.generalCryEnabled.Value);
                     CoPilot.instance.Settings.generalCryCorpseTriggerRange.Value =
-                        ImGuiExtension.IntSlider("Corpse Trigger Range", CoPilot.instance.Settings.generalCryCorpseTriggerRange);
+                        ImGuiExtension.IntSlider("Corpse Trigger Range: A lot", CoPilot.instance.Settings.generalCryCorpseTriggerRange);
                     CoPilot.instance.Settings.generalCryTriggerRange.Value =
                         ImGuiExtension.IntSlider("min 1 Enemy Range", CoPilot.instance.Settings.generalCryTriggerRange);
                     CoPilot.instance.Settings.generalCryMinCorpse.Value =
